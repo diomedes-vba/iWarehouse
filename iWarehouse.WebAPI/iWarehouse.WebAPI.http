@@ -1,0 +1,6 @@
+@iWarehouse.WebAPI_HostAddress = http://localhost:5275
+
+GET {{iWarehouse.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
