@@ -24,7 +24,14 @@ public class InventoryService : IInventoryService
 
     public async Task UpdateInventoryItemAsync(InventoryItem inventoryItem)
     {
-        await _inventoryRepository.UpdateItemAsync(inventoryItem);
+        var itemToUpdate = await _inventoryRepository.GetInventoryItemByProductNumberAsync(inventoryItem.ProductNumber);
+
+        if (itemToUpdate != null)
+        {
+            itemToUpdate.Quantity = inventoryItem.Quantity;
+            itemToUpdate.LastUpdatedAt = inventoryItem.LastUpdatedAt;
+            await _inventoryRepository.UpdateItemAsync(inventoryItem);
+        }
     }
 
     public async Task DeleteInventoryItemAsync(string productNumber)
