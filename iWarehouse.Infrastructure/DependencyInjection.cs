@@ -1,3 +1,5 @@
+using iWarehouse.Domain.Interfaces;
+using iWarehouse.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +13,8 @@ public static class DependencyInjection
         services.AddDbContext<InventoryDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("InventoryConnectionString")));
 
+        services.AddScoped<IInventoryRepository, InventoryRepository>();
+        
         return services;
     }
 }

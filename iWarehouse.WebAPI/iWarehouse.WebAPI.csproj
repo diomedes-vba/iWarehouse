@@ -25,6 +25,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\iWarehouse.Application\iWarehouse.Application.csproj" />
       <ProjectReference Include="..\iWarehouse.Infrastructure\iWarehouse.Infrastructure.csproj" />
     </ItemGroup>
 
