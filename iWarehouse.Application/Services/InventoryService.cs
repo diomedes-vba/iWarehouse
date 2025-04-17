@@ -38,4 +38,9 @@ public class InventoryService : IInventoryService
     {
         await _inventoryRepository.DeleteItemAsync(productNumber);
     }
+
+    public async Task<IEnumerable<InventoryItem>> GetBatchInventoryItemsAsync(string[] productNumbers)
+    {
+        return await _inventoryRepository.GetBatchInventoryItemsAsync(productNumbers);
+    }
 }

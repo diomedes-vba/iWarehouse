@@ -8,4 +8,5 @@ public interface IInventoryRepository
     Task AddItemAsync(InventoryItem item);
     Task UpdateItemAsync(InventoryItem item);
     Task DeleteItemAsync(string productNumber);
+    Task<IEnumerable<InventoryItem>> GetBatchInventoryItemsAsync(string[] productNumbers);
 }

@@ -38,4 +38,9 @@ public class InventoryRepository : IInventoryRepository
             _context.InventoryItems.Remove(itemToRemove);
         }
     }
+
+    public async Task<IEnumerable<InventoryItem>> GetBatchInventoryItemsAsync(string[] productNumbers)
+    {
+        return await _context.InventoryItems.Where(i => productNumbers.Contains(i.ProductNumber)).ToListAsync();
+    }
 }

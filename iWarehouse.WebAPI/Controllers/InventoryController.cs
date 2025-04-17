@@ -61,4 +61,17 @@ public class InventoryController : ControllerBase
         return NoContent();
     }
     
+    // POST: api/inventory/batch
+    [HttpPost("batch")]
+    public async Task<IActionResult> GetBatchInventoryItems([FromBody] string[] productNumbers)
+    {
+        if (productNumbers == null || productNumbers.Length == 0)
+        {
+            return BadRequest();
+        }
+        
+        var items = await _inventoryService.GetBatchInventoryItemsAsync(productNumbers);
+        return Ok(items);
+    }
+    
 }
