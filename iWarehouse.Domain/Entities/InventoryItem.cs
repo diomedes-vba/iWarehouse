@@ -7,4 +7,6 @@ public class InventoryItem
     public int Quantity { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime? LastUpdatedAt { get; set; }
+    
+    public IEnumerable<StockTransaction> StockTransactions { get; set; }
 }
